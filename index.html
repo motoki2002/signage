@@ -57,7 +57,7 @@
     // 1) キャッシュ回避：起動時に必ずURLを変える（最新を取りに行きやすくする）
     function setVideoSrc() {
       const ts = Date.now();
-      v.src = `./signage.mp4?v=${ts}`;
+      v.src = `./002.mp4?v=${ts}`;
       v.load();
       v.play().catch(() => {});
     }
