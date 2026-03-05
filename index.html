@@ -54,10 +54,10 @@
       navigator.serviceWorker.register("./sw.js");
     }
 
-    // 1) キャッシュ回避：起動時に必ずURLを変える（最新を取りに行きやすくする）
+    // 1) キャッシュ回避：起動時に必ずURLを変える（最新を取りに行きやすくする） 動画のファイル名はこの部分にあります
     function setVideoSrc() {
       const ts = Date.now();
-      v.src = `./002.mp4?v=${ts}`;
+      v.src = `./signage.mp4?v=${ts}`;
       v.load();
       v.play().catch(() => {});
     }
@@ -71,8 +71,8 @@
       v.play().catch(() => {});
     });
 
-    // 3) 毎日 03:30 にリロード（開きっぱなしでも更新が反映されるようにする）
-    function scheduleDailyReload(hour = 3, minute = 30) {
+    // 3) 毎日 08:30 にリロード（開きっぱなしでも更新が反映されるようにする）
+    function scheduleDailyReload(hour = 8, minute = 30) {
       const now = new Date();
       const next = new Date(now);
       next.setHours(hour, minute, 0, 0);
@@ -83,7 +83,7 @@
 
     // 初期化
     setVideoSrc();
-    scheduleDailyReload(17, 45);
+    scheduleDailyReload(8, 30);
   </script>
 </body>
 </html>
